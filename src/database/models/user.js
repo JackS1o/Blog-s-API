@@ -17,12 +17,15 @@ module.exports = (sequelize, DataTypes) => {
     },
     displayName: {
       type: DataTypes.STRING,
-      allowNull: false,
+      defaultValue: ""
     },
     image: {
       type: DataTypes.STRING,
-      allowNull: false,
-    }
+      defaultValue: ""
+    },
+  },
+  {
+    timestamps: false,
   });
   return User;
 }

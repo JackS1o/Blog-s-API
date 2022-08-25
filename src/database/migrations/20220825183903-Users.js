@@ -11,7 +11,8 @@ module.exports = {
       },
       displayName: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
+        defaultValue: ""
       }, 
       email: {
         type: Sequelize.STRING,
@@ -24,7 +25,7 @@ module.exports = {
       },
       image: {
         type: Sequelize.STRING,
-        allowNull: false,
+        defaultValue: ""
       }
     });
   },
