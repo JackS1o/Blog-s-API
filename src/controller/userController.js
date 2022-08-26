@@ -13,4 +13,17 @@ const login = async (req, res) => {
   return res.status(200).json({ token });
 };
 
-module.exports = { login };
+const createUser = async (req, res) => {
+  const { body } = req;
+  const token = jwt.sign({ body }, JWT_SECRET, {
+    expiresIn: '1d',
+  });
+  const result = await Service.createUser(body);
+  if (!result) return res.status(409).json({ message: 'User already registered' });
+  return res.status(201).json({ token });
+};
+
+module.exports = {
+  login,
+  createUser,
+};
