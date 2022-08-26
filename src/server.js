@@ -20,4 +20,6 @@ app.post('/user', validateUser, Controller.createUser);
 
 app.get('/user', authToken, Controller.getAllUsers);
 
+app.get('/user/:id', authToken, Controller.getUserById);
+
 app.listen(port, () => console.log('ouvindo porta', port));
