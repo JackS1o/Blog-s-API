@@ -6,6 +6,13 @@ const addCategory = async (body) => {
   return ({ id: result.null, name: result.name });
 };
 
+const getCategory = async () => {
+  const result = await Category.findAll();
+  if (!result) return false;
+  return result;
+};
+
 module.exports = {
   addCategory,
+  getCategory,
 };

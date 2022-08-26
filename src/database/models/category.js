@@ -11,8 +11,5 @@ module.exports = (sequelize, DataTypes) => {
   {
     timestamps: false,
   });
-  Category.associate = (models) => {
-    Category.belongsTo(models.BlogPost, { through: 'PostCategory', foreignKey: 'categoryId'});
-  }
   return Category;
 };
