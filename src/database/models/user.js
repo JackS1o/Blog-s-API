@@ -17,11 +17,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     displayName: {
       type: DataTypes.STRING,
-      defaultValue: ""
+      // defaultValue: ""
     },
     image: {
       type: DataTypes.STRING,
-      defaultValue: ""
+      // defaultValue: ""
     },
   },
   {
