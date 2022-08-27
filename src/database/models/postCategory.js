@@ -15,7 +15,9 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Categories',
         key: 'id',
       },
-    },
+    }
+  },
+  {
     timestamps: false,
   });
   PostCategory.associate = (models) => {

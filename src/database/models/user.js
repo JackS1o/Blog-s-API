@@ -17,11 +17,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     displayName: {
       type: DataTypes.STRING,
-      // defaultValue: ""
     },
     image: {
       type: DataTypes.STRING,
-      // defaultValue: ""
     },
   },
   {
