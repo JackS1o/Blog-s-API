@@ -41,4 +41,6 @@ app.put('/post/:id', authToken, updateValide, updateBody, BlogPostController.upd
 
 app.delete('/post/:id', authToken, updateValide, BlogPostController.deletePost);
 
+app.delete('/user/me', authToken, Controller.deleteMe);
+
 app.listen(port, () => console.log('ouvindo porta', port));

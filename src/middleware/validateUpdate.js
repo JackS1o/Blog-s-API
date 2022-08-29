@@ -12,15 +12,6 @@ const updateValide = async (req, res, next) => {
   next();
 };
 
-// const updateValide2 = async (req, res, next) => {
-//   const { auth } = req;
-//   const { id } = await User.findOne({ where: { email: auth } });
-//   if (Number(id) !== Number(req.params.id)) {
-//     return res.status(401).json({ message: 'Unauthorized user' });
-//   }
-//   next();
-// };
-
 const updateBody = async (req, res, next) => {
   const { title, content } = req.body;
   if (title.length <= 0 || content.length <= 0) {
