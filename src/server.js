@@ -19,6 +19,8 @@ app.get('/', (_request, response) => {
   response.send();
 });
 
+app.get('/post/search', authToken, BlogPostController.searchPost);
+
 app.post('/login', loginVerify, Controller.login);
 
 app.post('/user', validateUser, Controller.createUser);
