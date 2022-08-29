@@ -85,7 +85,6 @@ const searchPost = async (q) => {
     through: { attributes: [] },
     }],
   });
-  console.log(post);
   return post;
 };
 
