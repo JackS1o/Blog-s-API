@@ -47,8 +47,14 @@ const getPostById = async (id) => {
     through: { attributes: [] },
     }],
   });
-  console.log(result);
   if (!result) return false;
+  return result;
+};
+
+const updatePost = async (id, body) => {
+  const { title, content } = body;
+  await BlogPost.update({ title, content }, { where: { id } });
+  const result = await getPostById(id);
   return result;
 };
 
@@ -56,4 +62,5 @@ module.exports = {
   addPost,
   getPost,
   getPostById,
+  updatePost,
 };
