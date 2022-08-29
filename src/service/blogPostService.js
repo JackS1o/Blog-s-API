@@ -1,8 +1,6 @@
 const { BlogPost, User, Category, PostCategory, sequelize } = require('../database/models');
 
 const addPost = async (body, auth) => {
-  // const teste = await BlogPost.findByPk(2, { include: { model: User } });
-  // console.log('hdhwd', teste.dataValues.User);
   const result = await sequelize.transaction(async (transaction) => {
     const { title, content, categoryIds } = body;
   
@@ -32,7 +30,24 @@ const getPost = async () => {
     through: { attributes: [] },
     }],
   });
-  console.log(result[0].dataValues);
+  if (!result) return false;
+  return result;
+};
+
+const getPostById = async (id) => {
+  const result = await BlogPost.findByPk(id, {
+    include: [{
+      model: User,
+      as: 'user',
+      attributes: { exclude: ['password'] },
+    },
+    {
+    model: Category,
+    as: 'categories',
+    through: { attributes: [] },
+    }],
+  });
+  console.log(result);
   if (!result) return false;
   return result;
 };
@@ -40,4 +55,5 @@ const getPost = async () => {
 module.exports = {
   addPost,
   getPost,
+  getPostById,
 };
