@@ -32,4 +32,6 @@ app.get('/categories', authToken, CategoryContoler.getCategory);
 
 app.post('/post', authToken, validatePost, ifCategoryExists, BlogPostController.addPost);
 
+app.get('/post', authToken, BlogPostController.getPost);
+
 app.listen(port, () => console.log('ouvindo porta', port));
